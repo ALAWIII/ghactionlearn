@@ -1,3 +1,4 @@
+name: CI
 run-name: pipline by @${{ github.actor }}
 env:
   food: "shawarma"
