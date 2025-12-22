@@ -1,0 +1,15 @@
+run-name: pipline by @${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: downloading repo to the runner
+        uses: actions/checkout@v3
+      - name: printing pwd
+        run: pwd
