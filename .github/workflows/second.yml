@@ -20,6 +20,11 @@ jobs:
   personality:
     runs-on: ubuntu-latest
     steps:
+      - name: check OS
+        if: runner.os != 'Windows'
+        run: echo "hello my dear linux $RUNNER_OS."
+      - name: print custom repository variable
+        run: echo "I like eating:" ${{ vars.CRAFTING_GH }}
       - name: print food
         run: echo ${{ env.food }}
       - name: print hoppy
