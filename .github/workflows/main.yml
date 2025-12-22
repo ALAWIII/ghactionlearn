@@ -3,6 +3,8 @@ name: Checkin
 on:
   workflow_dispatch:
   push:
+    branches:
+      - flafel
     tags:
       - v*.*.*
 jobs:
