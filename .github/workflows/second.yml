@@ -27,3 +27,8 @@ jobs:
         run: echo absolutly ${{ env.love_girls }}
       - name: checking github secrets
         run: echo ${{ secrets.GITHUB_TOKEN }}
+  report_url:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print url
+        run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
