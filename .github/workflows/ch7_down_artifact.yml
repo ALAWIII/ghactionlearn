@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: uploading artifacts
-        uses: actions/upload-artifacts@v6
+        uses: actions/upload-artifact@v6
         with:
           name: archive.zip
           path: ./
