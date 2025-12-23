@@ -6,9 +6,21 @@ on:
     branches: ["main", "dev"]
 
 jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: deploy
+        run: echo "deploying"
+      - name: printing environment secrets
+        run: echo ${{ secrets.PIZZA2_TOKEN }}
+      - name: printing environment variables
+        run: echo ${{ vars.SHAWARMA_PIZZA }}
+
   release:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: upload artifacts
         uses: actions/upload-artifact@v6.0.0
         with:
