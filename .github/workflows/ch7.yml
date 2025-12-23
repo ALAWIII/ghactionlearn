@@ -6,11 +6,7 @@ on:
 
 jobs:
   workflow_reuse:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: using a local workflow
-        uses: ./ch7_call.yml
-        with:
-          title: "sandwitch"
-          body: "its so healthy and delicious"
+    uses: ./.github/workflows/ch7_call.yml
+    with:
+      title: "sandwitch"
+      body: "its so healthy and delicious"
