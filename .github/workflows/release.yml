@@ -1,0 +1,16 @@
+name: release
+run-name: release by @${{ github.actor }}
+
+on:
+  push:
+    branches: ["main", "dev"]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: archive.zip
+          path: ./
