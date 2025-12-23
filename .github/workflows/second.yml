@@ -37,6 +37,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: printing PIZZA TOKEN SECRET
-        run: ${{ secrets.PIZZA_TOKEN }}
+        run: echo ${{ secrets.PIZZA_TOKEN }}
       - name: print url
         run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
