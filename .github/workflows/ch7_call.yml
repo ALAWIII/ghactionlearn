@@ -1,0 +1,30 @@
+name: calling module
+run-name: run by @${{ github.actor }}
+
+on:
+  workflow_call:
+    inputs:
+      title:
+        required: true
+        type: string
+      body:
+        required: true
+        type: string
+
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "title PIZZA"
+        required: true
+      body:
+        description: "body SHAWARMA"
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print title
+        run: echo ${{ inputs.title }}
+      - name: print body
+        run: echo ${{ inputs.body }}

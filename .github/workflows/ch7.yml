@@ -1,0 +1,16 @@
+name: chapter 7
+run-name: run by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  workflow_reuse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: using a local workflow
+        uses: ./ch7_call.yml
+        with:
+          title: "sandwitch"
+          body: "its so healthy and delicious"
