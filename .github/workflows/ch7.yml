@@ -16,6 +16,9 @@ jobs:
     needs: call_workflow
     steps:
       - name: print title by id from previous workflow job
-        run: echo ${{ needs.call_workflow.outputs.title }}
+        id: title
+        run: echo "titlex=${{ needs.call_workflow.outputs.title }}" >> "$GITHUB_OUTPUT"
       - name: print body by id from previous workflow job
         run: echo ${{ needs.call_workflow.outputs.body }}
+      - name: calling value from previous step
+        run: echo "printing title value:" ${{ steps.title.outputs.titlex }}
