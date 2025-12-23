@@ -5,8 +5,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  workflow_reuse:
+  call_workflow:
     uses: ./.github/workflows/ch7_call.yml
     with:
       title: "sandwitch"
       body: "its so healthy and delicious"
+
+  print_title:
+    runs-on: ubuntu-latest
+    needs: call_workflow
+    steps:
+      - name: print title by id from previous workflow job
+        run: echo ${{ needs.call_workflow.outputs.title }}
+      - name: print body by id from previous workflow job
+        run: echo ${{ needs.call_workflow.outputs.body }}

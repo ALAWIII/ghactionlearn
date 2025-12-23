@@ -10,6 +10,13 @@ on:
       body:
         required: true
         type: string
+    outputs:
+      title:
+        description: "Returned title"
+        value: ${{ jobs.build.outputs.title }}
+      body:
+        description: "Returns body"
+        value: ${{ jobs.build.outputs.body }}
 
   workflow_dispatch:
     inputs:
@@ -23,8 +30,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      title: ${{ steps.titleo.outputs.title }}
+      body: ${{ steps.body.outputs.body }}
     steps:
       - name: print title
-        run: echo ${{ inputs.title }}
+        id: "titleo"
+        run: echo "title=${{ inputs.title }}" >> "$GITHUB_OUTPUT"
       - name: print body
-        run: echo ${{ inputs.body }}
+        id: "body"
+        run: echo "body=${{ inputs.body }}" >> "$GITHUB_OUTPUT"
