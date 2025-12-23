@@ -1,0 +1,20 @@
+name: arti-download
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: downloading the artifacts from github repo
+        uses: actions/download-artifact@v7.0.0
+        with:
+          name: archive.zip
+          path: ./output
+      - name: print working director contents
+        run: ls -l
+      - name: changing directory to ./putput
+        run: cd ./output && ls
+      - name: printing content from readme file
+        run: echo "content after downloading\n$(cat README.md)"
