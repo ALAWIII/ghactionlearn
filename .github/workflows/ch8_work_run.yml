@@ -1,0 +1,15 @@
+name: workflow-run
+
+on:
+  workflow_run:
+    workflows:
+      - trigger-types
+    types:
+      - completed
+
+jobs:
+  prit-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print hello after a trigger-types had been completed
+        run: echo "hello fucking world"
