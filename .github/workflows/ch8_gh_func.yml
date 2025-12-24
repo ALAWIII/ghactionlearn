@@ -1,0 +1,14 @@
+name: GH-function
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-to-log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dumb github context
+        id: github_context_step
+        run: echo '${{ toJson(github) }}'
+      - name: dumb steps context
+        run: echo '${{ toJson(steps) }}'
