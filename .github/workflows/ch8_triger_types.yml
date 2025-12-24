@@ -1,0 +1,12 @@
+name: trigger-types
+
+on:
+  issues:
+    types: [opened, closed, deleted]
+
+jobs:
+  notify-for-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing the issue type that triggered this workflow
+        run: echo "Issue action:" " ${{ github.event.action }}"
